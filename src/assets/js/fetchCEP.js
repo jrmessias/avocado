@@ -1,6 +1,9 @@
-const url = "https://viacep.com.br/ws/89801112/json/";
+export function  getCEP(button, data){
+    button.addEventListener('click', () => getCEPData(document.querySelector('#cep'), data.value))
+}
 
-export async function getCEPData(element) {
+export async function getCEPData(element, cep) {
+    let url = `https://viacep.com.br/ws/${cep}/json/`;
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     try {
